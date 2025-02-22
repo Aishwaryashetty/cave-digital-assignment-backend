@@ -7,7 +7,7 @@ import { JwtGuard } from '../auth/jwt/jwt.guard';
 @Controller('tasks')
 @UseGuards(JwtGuard) // Apply JwtGuard to all endpoints in this controller
 export class TasksController {
-  constructor(private readonly tasksService: TasksService) {}
+  constructor(private readonly tasksService: TasksService) { }
 
   @Post()
   create(@Body() createTaskDto: CreateTaskDto, @Request() req) {
@@ -16,7 +16,6 @@ export class TasksController {
 
   @Get()
   findAll(@Request() req) {
-    console.log('Aishu',req.user);
     return this.tasksService.findAll(req.user.userId);
   }
 
