@@ -57,9 +57,7 @@ export class AuthService {
         html: htmlContent,
       });
     } catch (error) {
-      throw new BadRequestException(error);
-
-      // throw new BadRequestException('Failed to send reset OTP');
+      throw new BadRequestException('Failed to send reset OTP');
     }
   }
 
